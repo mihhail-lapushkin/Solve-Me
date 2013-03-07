@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+  	<head>
+	    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/fonts.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/imgs.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/anim.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/main.css" type="text/css" media="screen">
+		
+		<script type="text/javascript" charset="utf-8" src="js/kineticjs/kinetic-v4.0.2.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/kineticjs/Color.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/kineticjs/ForceDirectedLayout.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/kineticjs/GameCircle.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/kineticjs/GameCircleHighlight.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/kineticjs/Connection.js"></script>
+		
+		<script type="text/javascript" charset="utf-8" src="js/libs/cordova-2.0.0.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/libs/geom.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/libs/rand.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/libs/swipes.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/libs/utils.js"></script>
+
+		<script type="text/javascript" charset="utf-8" src="js/levels.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+  	</head>
+  	<body>
+  		<!-- SCREENS -->
+  		<div
+  			role="screen"
+  			id="empty-screen"
+  		></div>
+  				
+  		<div
+			role="screen"
+			id="splash-logo"
+  		>
+  		</div>
+  		
+  		<div
+			role="screen"
+			id="splash-fade"
+  		>
+  		</div>
+  				
+  		<div
+  			role="screen"
+  			id="welcome1"
+  				right="welcome2"
+  		>
+  			<div>
+	  			<div class="yellow text">
+	  				<span class="golden bold">Welcome!</span><br>
+	  				Your task is to get the screen cleared with least amount of taps
+	  			</div>
+	  			<span class="swipe-text to-continue golden">
+	  				<span class="italic bold">SWIPE TO CONTINUE</span>
+	  				<span class="swipe-arrow">➤➤</span>
+	  			</span>
+  			</div>
+  		</div>
+  		
+  		<div
+  			role="screen"
+  			id="welcome2"
+	  			left="welcome1"
+	  			right="welcome3"
+  		>
+  			<div>
+	  			<div class="yellow text">
+	  				Just try it out!
+	  			</div>
+  				<span class="swipe-text to-continue golden">
+  					<span class="italic bold">SWIPE TO CONTINUE</span>
+  					<span class="swipe-arrow">➤➤</span>
+  				</span>
+  			</div>
+  		</div>
+  		
+  		<div
+  			role="screen"
+  			id="welcome3"
+	  			left="welcome2"
+	  			right="game"
+  		>
+  			<div>
+  				<div class="yellow text">
+  					By the way, you can always swipe back to this page to get some useful tips!
+  				</div>
+  				<span class="swipe-text to-begin golden">
+  					<span class="italic bold">SWIPE TO BEGIN</span>
+  					<span class="swipe-arrow">➤➤</span>
+  				</span>
+  			</div>
+  		</div>
+  		
+    	<div
+  			role="screen"
+  			id="help"
+	  			right="game"
+  		>
+  			<div>
+  				<span class="golden bold">SOME TIPS ABOUT THE GAME</span><br>
+  				<ul class="yellow">
+  					<li><span class="golden bullet">①</span> Tap only green circles</li>
+  					<li><span class="golden bullet">②</span> Keep connections as long as possible</li>
+  					<li><span class="golden bullet">③</span> Tip 3</li>
+  					<li><span class="golden bullet">④</span> Tip 4</li>
+  				</ul>
+  			</div>
+  		</div>
+  		
+		<div
+			role="screen"
+			id="game"
+				left="help"
+				right="menu"
+				top="menu"
+				bottom="menu"
+		></div>
+		
+		<!-- MENUS -->
+		
+		<div
+			role="menu"
+			id="menu"
+				row="2"
+				col="3"
+		>
+		</div>
+		
+		<div
+			role="menu"
+			id="menu-difficulty-1"
+				row="3"
+				col="4"
+		>
+		</div>
+		
+		<div
+			role="menu"
+			id="menu-difficulty-2"
+				row="3"
+				col="4"
+		>
+		</div>
+		
+		<div
+			role="menu"
+			id="menu-difficulty-3"
+				row="3"
+				col="4"
+		>
+		</div>
+		
+		<div
+			role="menu"
+			id="menu-difficulty-4"
+				row="3"
+				col="4"
+		>
+		</div>
+		
+		<div
+			role="menu"
+			id="menu-difficulty-5"
+				row="3"
+				col="4"
+		>
+		</div>
+		
+		<div
+			role="menu"
+			id="menu-difficulty-6"
+				row="3"
+				col="4"
+		>
+		</div>
+		
+		<!-- MESSAGES -->
+		
+		<div
+			role="message"
+			size="big"
+			id="choose-difficulty"
+		>
+			<span class="golden">CHOOSE<br>DIFFICULTY</span>
+		</div>
+		
+		<div
+			role="message"
+			size="big"
+			id="choose-level"
+		>
+			<span class="golden">CHOOSE<br>LEVEL</span>
+		</div>
+		
+		<div
+			role="message"
+			size="big"
+			id="menu-hint"
+		>
+			SWIPE FOR MENU
+		</div>
+		
+		<div
+			role="message"
+			size="medium"
+			id="solved"
+		>
+			NICE!<br>
+			YOUR SOLUTION<br>
+			IS OPTIMAL!
+		</div>
+		
+		<div
+			role="message"
+			size="small"
+			id="failed"
+		>
+			GREAT JOB!<br>
+			BUT YOU CAN SOLVE IT<br>
+			WITH <span class="golden">#</span> TAPS LESS
+		</div>
+		
+		<div
+			role="message"
+			size="small"
+			id="exceeded"
+		>
+			IMPRESSING!<br>
+			YOU'VE BEATEN THE BEST<br>
+			BY <span class="golden">#</span> TAPS!
+		</div>
+		
+		<div
+			role="message"
+			size="medium"
+			id="after-failed"
+		>
+			ADJUST YOUR<br>
+			STRATEGY AND<br>
+			TRY AGAIN!
+		</div>
+		
+		<div
+			role="message"
+			size="medium"
+			id="after-solved"
+		>
+			DARE TO REPEAT<br>
+			YOUR SUCCESS<br>
+			ON ANOTHER ONE?
+		</div>
+	</body>
+</html>
